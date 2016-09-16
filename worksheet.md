@@ -1,38 +1,38 @@
-# neuer versuch
+# Erste Schritte mit der PiCamera
 
-The camera module is a great accessory for the Raspberry Pi, allowing users to take still pictures and record video in full HD.
+Das Kameramodul ist eine tolle Hardware-Komponente für den Raspberry Pi, die es dem Nutzer erlaubt, sowohl Standbilder als auch Full HD Videos aufzunehmen.
 
-## Connect the camera module
+## Das Kameramodul anschließen
 
-First of all, with the Pi switched off, you'll need to connect the camera module to the Raspberry Pi's camera port, then start up the Pi and ensure the software is enabled.
+Zu aller erst musst du die Kamera natürlich an den Raspberry Pi anschließen. Dafür muss der Pi ausgeschaltet sein. Wenn du die Kamera per Kabel verbunden hast, schaltest du den Pi ein und musst dann noch sicherstellen, dass die benötigte Software auch aktiviert ist. Aber hier auch nochmal eine Schritt-für-Schritt Anleitung:
 
-1. Locate the camera port and connect the camera:
+1. Finde den Kamera-Port und verbinde die Kamera
 
-    ![Connect the camera](images/connect-camera.jpg)
+    ![Schließe die Kamera an](images/connect-camera.jpg)
+    
+2. Starte deinen Raspberry Pi
 
-1. Start up the Pi.
+3. Öffne das **Raspberry Pi Configuration Tool** im Hauptmenü
 
-1. Open the **Raspberry Pi Configuration Tool** from the main menu:
+    ![Raspberry Pi Konfigurationstool](images/raspi-config-menu.png)
+    
+4. Überprüfe, ob die Kamera-Software aktiviert (engl. enabled) ist
 
-    ![Raspberry Pi Configuration Tool](images/raspi-config-menu.png)
+    ![Kamera-Software aktiviert](images/raspi-config.png)
 
-1. Ensure the camera software is enabled:
+    Wenn dies nicht der Fall ist, aktiviere die Kamera und starte deinen Pi neu.
 
-    ![Camera software enabled](images/raspi-config.png)
+## Kamera Vorschau
 
-    If it's not enabled, enable it and reboot your Pi to begin.
+Super! Deine Kamera ist jetzt verbunden und auch die Software ist aktiviert. Also worauf wartest du noch? Probiere doch einfach mal die Kamera Vorschau aus. Das ist auch gar nicht so schwer. Wir zeigen dir, wie es geht
 
-## Camera preview
+1. Öffne **Python 3** im Hauptmenü:
 
-Now your camera is connected and the software is enabled, you can get started by trying out the camera preview.
+    ![Öffne Python 3](images/python3-app-menu.png)
+    
+2. Erstelle eine neue Datei und speichere sie mit dem Namnen `camera.py`. Aber aufgepasst! Es ist wichtig, dass du die Datei **nicht** unter `picamera.py`speicherst!
 
-1. Open **Python 3** from the main menu:
-
-    ![Open Python 3](images/python3-app-menu.png)
-
-1. Open a new file and save it as `camera.py`. It's important that you **do not** save it as `picamera.py`.
-
-1. Enter the following code:
+3. Als nächstes musst du den folgenden Code eingeben:
 
     ```python
     from picamera import PiCamera
@@ -44,16 +44,15 @@ Now your camera is connected and the software is enabled, you can get started by
     sleep(10)
     camera.stop_preview()
     ```
+4. Jetzt speicherst du alles mit **Strg + S** und startest die Vorschau mit **F5**. Die Kamera Vorschau sollte dir jetzt für 10 Sekunden angezeigt werden und sich dann wieder schließen. Bewege die Kamera nun ein bisschen herum, damit du sehen kannst, was die Kamera sieht.
 
-1. Save with **Ctrl + S** and run with **F5**. The camera preview should be shown for 10 seconds, and then close. Move the camera around to preview what the camera sees.
-
-    The live camera preview should fill the screen like so:
+    Die live Vorschau sollte auf dem Bildschirm in etwa so aussehen:
 
     ![Image preview](images/preview.jpg)
     
-    **Note that the camera preview only works when a monitor is connected to the Pi, so remote access (such as SSH and VNC) will not allow you to see the camera preview**
-
-1. If your preview was upside-down, you can rotate it with the following code:
+    **Bitte beachte, dass die Kamera Vorschau nur dann funktioniert, wenn du auch einen Bildschirm an den Pi angeschlossen hast. Über Fernzugriff (wie etwa SSH und VNC) kannst du die Vorschau nicht nutzen**
+    
+5. Deine Vorschau war auf den Kopf gestellt? Kein Problem! Du kannst das Bild mit folgendem Code drehen:
 
     ```python
     camera.rotation = 180
@@ -62,9 +61,9 @@ Now your camera is connected and the software is enabled, you can get started by
     camera.stop_preview()
     ```
 
-    You can rotate the image by `90`, `180`, or `270` degrees, or you can set it to `0` to reset.
+    Das Bild kannst du um `90`, `180`, oder `270` Grad drehen und mit `0`setzt du es auf die ursprüngliche Ansicht zurück.
 
-1. You can alter the transparency of the camera preview by setting an alpha level:
+6. Die Transparenz der Kamera kannst du ändern, indem du einen Alphakanal erstellst:
 
     ```python
     from picamera import PiCamera
@@ -77,13 +76,17 @@ Now your camera is connected and the software is enabled, you can get started by
     camera.stop_preview()
     ```
 
-    `alpha` can be any value between `0` and `255`.
+    Für `alpha` kannst du jeden beliebigen Wert zwischen `0`und `255`auswählen.
+    
+    Transparenz? Alphakanal? Du hast noch nie davon gehört? Keine Sorge, klingt alles viel schlimmer als es ist.
+    Das Wort Transparenz ist dir bestimmt ein Begriff. Es heißt nichts anderes als Durchsichtigkeit. Und das bedeutet, dass du in einem Bild ein Element (zum Beispiel eine Blume) sehen kannst, obwohl es eigentlich durch ein anderes Element (zum Beispiel einen Schmetterling) verdeckt ist. Da der Schmetterling aber transparent, also durchsichtig, ist, kannst du die darunterliegende Blume trotzdem sehen. 
+    Die Informationen zu dieser Transparenz werden im sogenannten Alphakanal gespeichert. Wenn ein Bild keinen Alphakanal hat, dann können auch keine Bereiche oder Elemente transparent dargestellt werden.
 
-## Still pictures
+## Standbilder
 
-The most common use for the camera module is taking still pictures.
+Die meistgenutzte Funktion der Kamera ist die Aufnahme von (Stand-)Bildern. Wie du das machst, zeigen wir dir jetzt:
 
-1. Amend your code to reduce the `sleep` and add a `camera.capture()` line:
+1. Um ein Foto zu machen, musst du deinen Code von vorhin nur ein kleines bisschen verändern. Zum einen solltest du den Wert für `sleep`verringern, sodass die Vorschau nur noch 5 Sekunden beträgt. Zum anderen fügst du in der Zeile nach der `sleep`-Funktion  `camera.capture()` hinzu und gibst dort auch den Speicherort an:
 
     ```python
     camera.start_preview()
@@ -92,15 +95,15 @@ The most common use for the camera module is taking still pictures.
     camera.stop_preview()
     ```
 
-    It's important to sleep for at least 2 seconds before capturing, to give the sensor time to set its light levels.
+    Es ist wichtig, dass du das Programm für mindestens 2 Sekunden pausierst, bevor das Bild aufgenommen wird, damit der Sensor ausreichend Zeit hat, um das Licht einzustellen.
 
-1. Run the code and you'll see the camera preview open for 5 seconds before capturing a still picture. You'll see the preview adjust to a different resolution momentarily as the picture is taken.
+2. Starte nun das Programm (**F5**) und du wirst sehen, dass sich die Kamera Vorschau für 5 Sekunden öffnet, bevor das Foto aufgenommen wird. In dem Moment, in dem das Foto gemacht wird, ändert sich die Auflösung der Vorschau.
 
-1. You'll see your photo on the Desktop. Double-click the file icon to open it:
+3. Jetzt solltest du die Bilddatei auf deinem Desktop sehen. Du kannst es ganz einfach mit einem Doppelklick öffnen:
 
-    ![Image on Desktop](images/desktop.png)
+    ![Foto auf dem Desktop](images/desktop.png)
 
-1. Now try adding a loop to take five pictures in a row:
+4. Das hat doch schonmal ganz gut geklappt. Versuchen wir nun, eine Schleife in das Programm einzubauen, sodass gleich 5 Bilder hintereinander aufgenommen werden:
 
     ```python
     camera.start_preview()
@@ -110,17 +113,17 @@ The most common use for the camera module is taking still pictures.
     camera.stop_preview()
     ```
 
-    The variable `i` contains the current iteration number, from `0` to `4`, so the images will be saved as `image0.jpg`, `image1.jpg` and so on.
+    In Zeile 3 siehst du ein i. Das i ist eine Variable, die Informationen zur Nummer des Bildes enthält. Sie sagt also aus, um das wievielte Foto es sich aus dieser Reihe handelt, von 0 bis 4. Das heißt, das erste Foto wird als `image0.jpg` gespeichert, das zweite als `image1.jpg` und so weiter.
+    
+5. Führe das Programm nun erneut aus und halte die Kamera in Position. Wenn jetzt nichts schief geht, wird alle 5 Sekunden ein Foto gemacht.
 
-1. Run the code again and hold the camera in position. It will take one picture every five seconds.
+6. Sobald das letzte Foto gemacht wurde, schließt sich die Vorschau wieder. Die aufgenommenen Bilder kannst du dir jetzt wieder auf deinem Desktop anschauen.
 
-1. Once the fifth picture is taken, the preview will close. Now look at the images on your Desktop and you'll see five new pictures.
+## Videos aufnehmen
 
-## Recording video
+Das mit den Fotos ist ja schonmal eine coole Sache, aber deine PiCamera kann noch mehr. Neben Standbildern ist sie nämlich auch in der Lage, Full HD Videos aufzunehmen
 
-Now you've used the camera to take still pictures, you can move on to recording video.
-
-1. Amend your code to replace `capture()` with `start_recording()` and `stop_recording()`:
+1. Um Videos aufzunehmen, musst du wieder nicht viel an deinem Code verändern. Praktisch, oder? Du ersetzt einfach `capture()` mit `start_recording()` und `stop_recording()`. Das Ganze sollte dann so aussehen:
 
     ```python
     camera.start_preview()
@@ -130,13 +133,13 @@ Now you've used the camera to take still pictures, you can move on to recording 
     camera.stop_preview()
     ```
 
-1. Run the code; it will record 10 seconds of video and then close the preview.
+2. Und schon kann es los gehen. Starte dein Programm und es wird ein 10 sekündiges Video aufgenommen. Sind die 10 Sekunden um, schließst sich die Vorschau wieder.
 
-1. To play the video, you'll need to open a terminal window by clicking the black monitor icon in the taskbar:
+3. Als nächstes willst du dir die Aufnahme bestimmt ansehen. Nichts leichter als das! Zu erst musst du das Terminalfenster auf deinem Pi öffnen. Dazu klickst du einfach auf den schwarzen Bildschirm auf der Taskleiste.
 
-    ![Open Terminal](images/open-terminal.png)
+    ![Öffne das Terminal](images/open-terminal.png)
 
-1. Type the following command and press **Enter** to play the video:
+4. Gebe nun den folgenden Befehl und drücke dann **Enter**, um das Video zu starten:
 
     ```bash
     omxplayer video.h264
@@ -144,7 +147,9 @@ Now you've used the camera to take still pictures, you can move on to recording 
 
     ![omxplayer](images/omxplayer.png)
 
-1. The video should play. It may actually play slightly faster than it was recorded, due to `omxplayer`'s fast frame rate.
+    Das Video sollte nun beginnen. (Es kann sein, dass das Video schneller abgespielt wird, als es aufgenommen wurde. Das liegt an der schnellen Framrate des `omxplayer`. Eine hohe Framrate bedeutet, dass der Computer nur wenig Zeit braucht, um ein neues Bild auf dem Bildschirm anzuzeigen.)
+
+## Effekte
 
 ## Effects
 
