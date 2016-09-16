@@ -1,27 +1,24 @@
-# Contributing
+# Mitmachen
 
-All contributions are assumed to be licensed under the same licence as the source, i.e. [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/). This license must remain in all derivatives of this work.
+Alle Beiträge stehen unter selben Lizens wie das Repository also [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/). Diese Lizens muss in allen Vervielfachungen angegeben und eingehalten werdn.
 
-## Issues
+## Fehler
 
-If you find a mistake, bug or other problem, please [open an issue](https://github.com/raspberrypilearning/camjam-kit-1/issues) in this repository.
+Wenn du ein Fehler findest kannst du ein [Issue bei Github eröffnen](https://github.com/coding-world/getting-started-with-picamera/issues). 
 
-## Pull Requests
+## Pull Requests | Inhalte hinzufügen/Verbessern
 
-If you fix a mistake, bug or problem or have something to contribute, please create a pull request for each modification. Please consider grouping modifications sensibly, i.e. don't bundle typo fixes in the same pull request as code changes, instead file them separately.
+Wenn du einen Fehler findest: z.B. einen Inhaltlichen Bug oder Rechtschreibfehler freuen wir uns sehr wenn du diesen im Text veränderst und dann einen Pull Request machst. Erzeug bitte für jeden Fehler einen neuen Pull Request also alle Inhaltlichen Änderungen in einen anderen Pull Request als Rechtschreibfehler. 
 
-Please note that sometimes things are done for pedagogical reasons so changes which make sense from a software engineering perspective (reducing duplication or making use of more advanced programming language features) may not be suitable to maintain the intended educational value.
+Bitte beachte das wir Inhalte so erstellen/gestalten das sie Pädagogisch sinn ergeben. Das heißt teilweise werden Inhalte wiederhohlt oder es wird ein Weg genutzt der vor allem für Anfänger einfacher zu verstehen ist. 
 
-## Derivatives
+## Neuer Versionen
 
-The licence must remain in all derivatives of this work.
+In Allen neuen Versionen muss die License enthalten sein.
 
-## Licence
+## Lizens
 
-Unless otherwise specified, everything in this repository is covered by the following licence:
+Das ganze Repository steht wenn nicht anders gekennzeichnet unter [![Creative Commons Licence](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) Lizens. Diese Vision haben wir als Coding World übersetzt und basiert auf [Raspberry Pi Learning](https://github.com/raspberrypilearning/getting-started-with-picamera) und kommt von der [Raspberry Pi Foundation](https://www.raspberrypi.org/).
 
-[![Creative Commons Licence](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
-
-***Getting started with picamera*** by the [Raspberry Pi Foundation](https://www.raspberrypi.org/) is licensed under a [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by-sa/4.0/).
-
-Based on a work at https://github.com/raspberrypilearning/getting-started-with-picamera
+Unser Moto bei Coding World ist Code - Create - Change. 
+Mit deinem Einkauf bei Coding World/Jugend Programmiert unterstützt auch solche Übersetzungen die wir nur durch diese Ünterstützung Finanizieren können! Bei fragen kannst du dich an support @ codingworld.io wenden!
