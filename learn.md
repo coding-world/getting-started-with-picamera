@@ -1,6 +1,6 @@
-Was du mit dieser Anleitung Lernen wirst:
+Was du mit dieser Anleitung lernen wirst:
 
-- Wie du die Kamera mit dem Raspberry Pi verbindet
+- Wie du die Kamera mit dem Raspberry Pi verbindest
 - Wie du Bilder mit der Kamera und Python machst
 - Wie du die Funktionen `start_preview()` und `stop_preview()` verwendest
 - Wie du Bilder mit `capture()` machst
