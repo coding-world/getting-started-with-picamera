@@ -151,11 +151,9 @@ Das mit den Fotos ist ja schonmal eine coole Sache, aber deine PiCamera kann noc
 
 ## Effekte
 
-## Effects
+Am Anfang hast du mit `camera = PiCamera()` ein sogenanntes `camera`-Objekt erstellt. Dieses `camera`-Objekt kannst du nun beeinflussen, in dem du seine Einstellungen veränderst. Wie das geht, lernst du jetzt. Die Kamera-Software stellt eine Anzahl an Effekten und anderen Einstellungsmöglichkeiten zur Verfügung, die du nutzen kannst. Einige beeinflussen nur die Vorschau, andere nur das aufgenommen Foto. Aber viele wirken sich auf beide auf.
 
-At the beginning, you created a `camera` object with `camera = PiCamera()`. You can manipulate this `camera` object in order to configure its settings. The camera software provides a number of effects and other configurations you can apply. Some only apply to the preview and not the capture, others apply to the capture only, but many affect both.
-
-1. The resolution of the capture is configurable. By default it's set to the resolution of your monitor, but the maximum resolution is 2592 x 1944 for still photos and 1920 x 1080 for video recording. Try the following example to set the resolution to max. Note that you'll also need to set the frame rate to `15` to enable this maximum resolution:
+1. Die Auflösung der Aufnahme kann verändert werden. Als Voreinstellung ist die Aufnahme an die Auflösung deines Bildschirms angepasst, aber die höchste Auflösung für Standbilder beträgt 2592 x 1944 Pixel, für Videoaufnahmen 1920 x 1080. Probiere doch einfach mal folgendes Beispiel aus und gucke, was passiert. Außerdem solltest du beachten, dass du die Framerate auf `15`setzen musst, um die maximale Auflösung zu ermöglichen:
 
     ```python
     camera.resolution = (2592, 1944)
@@ -166,9 +164,9 @@ At the beginning, you created a `camera` object with `camera = PiCamera()`. You 
     camera.stop_preview()
     ```
 
-1. The minimum resolution allowed is 64 x 64. Try taking one at that resolution.
+2. Du hast gesehen, was passiert ist? Dann teste jetzt doch nochmal die geringste Auflösung. Diese beträgt 64 x 64 Pixel.
 
-1. You can easily add text to your image with `annotate_text`. Try it:
+3. Gut, das mit der Auflösung hätten wir geklärt. Aber dir bieten sich noch viel mehr Möglichkeiten. Zum Beispiel kannst du ganz einfach Text zu deinen Bildern hinzufügen, und zwar mit `annotate_text`. Probier's mal:
 
     ```python
     camera.start_preview()
@@ -178,7 +176,7 @@ At the beginning, you created a `camera` object with `camera = PiCamera()`. You 
     camera.stop_preview()
     ```
 
-1. You can alter the brightness setting, which can be set from `0` to `100`. The default is `50`. Try setting it to another value:
+4. Dein Bild ist viel zu dunkel? Natürlich kannst du auch die Helligkeit verändern, kein Problem. Automatisch ist der Wert auf `50`eingestellt, aber du kannst jeden Wert zwischen `0` und `100` auswählen:
 
     ```python
     camera.start_preview()
@@ -188,7 +186,7 @@ At the beginning, you created a `camera` object with `camera = PiCamera()`. You 
     camera.stop_preview()
     ```
 
-1. Try adjusting the brightness in a loop, and annotating the display with the current brightness level:
+5. Was du auch versuchen kannst, ist, die Helligkeit in einer Schleife anzupassen und den aktuellen Helligkeitswert auf dem Bildschirm anzuzeigen:
 
     ```python
     camera.start_preview()
@@ -199,7 +197,7 @@ At the beginning, you created a `camera` object with `camera = PiCamera()`. You 
     camera.stop_preview()
     ```
 
-1. Similarly, try the same for the contrast:
+6. Genauso kannst du das natürlich auch für den Kontrast machen:
 
     ```python
     camera.start_preview()
@@ -210,21 +208,21 @@ At the beginning, you created a `camera` object with `camera = PiCamera()`. You 
     camera.stop_preview()
     ```
 
-1. You can set the annotation text size with the following code:
+7. Die Größe des Textes kannst du folgendermaßen ändern:
 
     ```python
     camera.annotate_text_size = 50
     ```
 
-    Valid sizes are `6` to `160`. The default is `32`.
+    Auswählen kannst du die Schriftgröße von `6`zu `160`, wobei `32` die Standardgröße ist.
 
-1. You can also alter the annotation colours. First of all, ensure that `Color` is imported by amending your `import` line at the top:
+8. Desweiteren hast du die Möglichkeit, die Schriftfarbe nach deinen Wünschen zu gestalten, aber zuerst einmal müssen wir sicherstellen, dass `Color`auch importiert ist. Dazu verändern wir die `import`-Zeile ganz oben:
 
     ```python
     from picamera import PiCamera, Color
     ```
 
-    Then amend the rest of your code as follows:
+    Den Rest deines Codes solltest du wie folgt verändern:
 
     ```python
     camera.start_preview()
@@ -235,7 +233,7 @@ At the beginning, you created a `camera` object with `camera = PiCamera()`. You 
     camera.stop_preview()
     ```
 
-1. You can use `camera.image_effect` to apply a particular image effect. The options are: `none`, `negative`, `solarize`, `sketch`, `denoise`, `emboss`, `oilpaint`, `hatch`, `gpen`, `pastel`, `watercolor`, `film`, `blur`, `saturation`, `colorswap`, `washedout`, `posterise`, `colorpoint`, `colorbalance`, `cartoon`, `deinterlace1`, and `deinterlace2`. The default is `none`. Pick one and try it out:
+9. Um zwischen einer Auswahl an Effekten zu wählen, nutzt du einfach `camera.image_effect`. Dadurch stehen dir viele verschiedene Optionen zur Verfügung: `none`, `negative`, `solarize`, `sketch`, `denoise`, `emboss`, `oilpaint`, `hatch`, `gpen`, `pastel`, `watercolor`, `film`, `blur`, `saturation`, `colorswap`, `washedout`, `posterise`, `colorpoint`, `colorbalance`, `cartoon`, `deinterlace1` und `deinterlace2`. Standardmäßig ist natürlich `none`, also kein Effekt, eingestellt. Nun bist du dran! Such dir einen Effekt aus und dann los:
 
     ```python
     camera.start_preview()
@@ -245,7 +243,7 @@ At the beginning, you created a `camera` object with `camera = PiCamera()`. You 
     camera.stop_preview()
     ```
 
-1. Try looping over the various image effects in a preview to test them out:
+10. Versuche doch als nächstes einmal, mit Hilfe einer Schleife während der Vorschau durch die verschiedenen Effekte zu wechseln:
 
     ```python
     camera.start_preview()
@@ -256,9 +254,9 @@ At the beginning, you created a `camera` object with `camera = PiCamera()`. You 
     camera.stop_preview()
     ```
 
-    ![Effects](images/effects.jpg)
+    ![Effekte](images/effects.jpg)
 
-1. You can use `camera.awb_mode` to set the auto white balance to a preset mode to apply a particular effect. The options are: `off`, `auto`, `sunlight`, `cloudy`, `shade`, `tungsten`, `fluorescent`, `incandescent`, `flash`, and `horizon`. The default is `auto`. Pick one and try it out:
+11. Über die Bildeffekte hinaus kannst du `camera.awb_mode` nutzen, um den Autoweißabgleich voreinzustellen, damit du bestimmte Effekte anwenden kannst. Dabei stehen dir diese Optionen zur Auswahl: `off`, `auto`, `sunlight`, `cloudy`, `shade`, `tungsten`, `fluorescent`, `incandescent`, `flash`, und `horizon`. Der Standard ist `auto`. Also, entscheide dich für eine Option und teste es selbst:
 
     ```python
     camera.start_preview()
@@ -268,9 +266,9 @@ At the beginning, you created a `camera` object with `camera = PiCamera()`. You 
     camera.stop_preview()
     ```
 
-    You can loop over the available auto white balance modes with `camera.AWB_MODES`.
+    Du kannst durch die zur Verfügung stehenden Modi des Autoweißabgleich mit `camera.AWB_MODES` wechseln.
 
-1. You can use `camera.exposure_mode` to set the exposure to a preset mode to apply a particular effect. The options are: `off`, `auto`, `night`, `nightpreview`, `backlight`, `spotlight`, `sports`, `snow`, `beach`, `verylong`, `fixedfps`, `antishake`, and `fireworks`. The default is `auto`. Pick one and try it out:
+12. `camera.exposure_mode` ist dazu da, um den Belichtungsmodus für bestimmte Effekte anzuwenden. Dabei kannst du zwischen `off`, `auto`, `night`, `nightpreview`, `backlight`, `spotlight`, `sports`, `snow`, `beach`, `verylong`, `fixedfps`, `antishake`, und `fireworks` wählen. Standardmäßig ist mal wieder `auto` eingestellt. Nun bist du weider an der Reihe! Auswählen und loslegen:
 
     ```python
     camera.start_preview()
@@ -280,17 +278,17 @@ At the beginning, you created a `camera` object with `camera = PiCamera()`. You 
     camera.stop_preview()
     ```
 
-    You can loop over the available exposure modes with `camera.EXPOSURE_MODES`.
+    Du kannst durch die zur Verfügung stehenden Modi der Belichtung mit `camera.EXPOSURE_MODES` wechseln.
 
-## What next?
+## Was kommt als nächstes?
 
-Now you've got started with the camera module, what else can you do? You could try adding GPIO controls using [GPIO Zero](https://gpiozero.readthedocs.org/), integrate with Minecraft Pi, or even post your pictures to Twitter! Try some more camera resources:
+Jetzt, da du die ersten Schritte mit der PiCamera hinter dich gebracht hast, bleibt die Frage: was kannst du noch machen? Du könntest beispielsweise mal probieren, GPIO Steuerungen hinzuzufügen [GPIO Zero](https://gpiozero.readthedocs.org/), Minecraft Pi mit einzubeziehen oder du postest deine Fotos auf Twitter! Teste einfach noch ein paar Möglichkeiten, die sich dir durch die Kamera bieten:
 
 - [Push button stop-motion](https://www.raspberrypi.org/learning/push-button-stop-motion/)
-- [Minecraft photobooth](https://www.raspberrypi.org/learning/minecraft-photobooth/)
+- [Minecraft Fotobox](https://www.raspberrypi.org/learning/minecraft-photobooth/)
 - [Tweeting Babbage](https://www.raspberrypi.org/learning/tweeting-babbage/)
-- [Parent detector](https://www.raspberrypi.org/learning/parent-detector/)
+- [Eltern Detektor](https://www.raspberrypi.org/learning/parent-detector/)
 
-There's also an infrared version of the camera (called Pi NoIR) which gives you everything the regular camera module offers, with one difference: it doesn't use an infrared filter. This gives you the ability to see in the dark with infrared lighting. See the [Infrared bird box](https://www.raspberrypi.org/learning/infrared-bird-box/) resource for making the most of the Pi NoIR camera.
+Wusstest du schon, dass es auch eine Infrarot-Version der Kamera gibt? Sie heißt Pi NoIR und bietet dir alles, was die normale Kamera auch kann, mit einem Unterschied: Die Pi NoIR hat keinen Infrarotfilter. Dadurch hast du die Möglichkeit, im mit Infrarotlicht im Dunkeln zu sehen. Mit dem [Infrarot Vogelhäuschen](https://www.raspberrypi.org/learning/infrared-bird-box/) lernst du alles Wichtige, was du über die Pi NoIR Kamera wissen musst.
 
-Also, see the extensive [picamera documentation](https://picamera.readthedocs.org/) for more information.
+Außerdem findest du viele weitere Informationen in der umfangreichen [PiCamera Dokumentation](https://picamera.readthedocs.org/).
