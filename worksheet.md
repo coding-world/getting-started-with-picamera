@@ -284,11 +284,11 @@ Am Anfang hast du mit `camera = PiCamera()` ein sogenanntes `camera`-Objekt erst
 
 Jetzt, da du die ersten Schritte mit der PiCamera hinter dich gebracht hast, bleibt die Frage: was kannst du noch machen? Du könntest beispielsweise mal probieren, GPIO Steuerungen hinzuzufügen [GPIO Zero](https://gpiozero.readthedocs.org/), Minecraft Pi mit einzubeziehen oder du postest deine Fotos auf Twitter! Teste einfach noch ein paar Möglichkeiten, die sich dir durch die Kamera bieten:
 
-- [Push button stop-motion](https://www.raspberrypi.org/learning/push-button-stop-motion/)
-- [Minecraft Fotobox](https://www.raspberrypi.org/learning/minecraft-photobooth/)
-- [Tweeting Babbage](https://www.raspberrypi.org/learning/tweeting-babbage/)
-- [Eltern Detektor](https://www.raspberrypi.org/learning/parent-detector/)
+- [Push button stop-motion](https://codingworld.io/project/taster-stop-motion)
+- [Minecraft Fotobox [EN]](https://www.raspberrypi.org/learning/minecraft-photobooth/)
+- [Tweeting Babbage [EN]](https://www.raspberrypi.org/learning/tweeting-babbage/)
+- [Eltern Detektor [EN]](https://www.raspberrypi.org/learning/parent-detector/)
 
-Wusstest du schon, dass es auch eine Infrarot-Version der Kamera gibt? Sie heißt Pi NoIR und bietet dir alles, was die normale Kamera auch kann, mit einem Unterschied: Die Pi NoIR hat keinen Infrarotfilter. Dadurch hast du die Möglichkeit, im mit Infrarotlicht im Dunkeln zu sehen. Mit dem [Infrarot Vogelhäuschen](https://www.raspberrypi.org/learning/infrared-bird-box/) lernst du alles Wichtige, was du über die Pi NoIR Kamera wissen musst.
+Wusstest du schon, dass es auch eine Infrarot-Version der Kamera gibt? Sie heißt Pi NoIR und bietet dir alles, was die normale Kamera auch kann, mit einem Unterschied: Die Pi NoIR hat keinen Infrarotfilter. Dadurch hast du die Möglichkeit, im mit Infrarotlicht im Dunkeln zu sehen. Mit dem [Infrarot Vogelhäuschen [EN]](https://www.raspberrypi.org/learning/infrared-bird-box/) lernst du alles Wichtige, was du über die Pi NoIR Kamera wissen musst.
 
-Außerdem findest du viele weitere Informationen in der umfangreichen [PiCamera Dokumentation](https://picamera.readthedocs.org/).
+Außerdem findest du viele weitere Informationen in der umfangreichen [PiCamera Dokumentation [EN]](https://picamera.readthedocs.org/).
